@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Assistente Lovable",
+  "version": "3.4.35",
+  "description": "Assistente open source para Lovable com auditoria funcional, UI premium, SEO/AEO, APIs/MCP, contexto inteligente, atalhos editáveis e histórico local.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "https://*.lovable.dev/*",
+    "https://lovable.dev/*",
+    "https://*.lovable.app/*",
+    "https://lovable.app/*",
+    "https://api.lovable.dev/*",
+    "https://api.lovable.app/*",
+    "https://lovable-api.com/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "default_title": "Assistente Lovable"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.lovable.dev/*",
+        "https://lovable.dev/*",
+        "https://*.lovable.app/*",
+        "https://lovable.app/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false,
+      "match_about_blank": false
+    }
+  ],
+  "web_accessible_resources": [],
+  "short_name": "Assistente Lovable"
+}
